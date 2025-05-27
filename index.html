@@ -2,104 +2,116 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Patrimonium PCIOF I - Q4 2024 Performance Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- iPhone 16 specific optimizations -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    
+    <!-- Preload critical resources for performance -->
+    <link rel="preload" href="data.js" as="script">
+    <link rel="preload" href="charts.js" as="script">
+    <link rel="preload" href="dashboard.js" as="script">
 </head>
 <body class="bg-gray-50 font-sans">
-    <!-- Header -->
+    <!-- Header - iPhone 16 Optimized -->
     <header class="bg-white shadow-sm border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
-            <h1 class="text-xl sm:text-2xl font-bold text-gray-800">Patrimonium PCIOF I - Q4 2024 Performance Dashboard</h1>
-            <p class="text-sm text-gray-600 mt-1">Climate Infrastructure Opportunity Fund Performance Report</p>
+            <h1 class="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 leading-tight">Patrimonium PCIOF I - Q4 2024 Performance Dashboard</h1>
+            <p class="text-xs sm:text-sm text-gray-600 mt-1">Climate Infrastructure Opportunity Fund Performance Report</p>
         </div>
     </header>
 
-    <!-- Tab Navigation -->
-    <nav class="bg-white border-b border-gray-200">
+    <!-- Tab Navigation - iPhone 16 Optimized -->
+    <nav class="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex space-x-8">
-                <button class="tab-button active" data-tab="performance" id="tab-performance">
-                    <span class="tab-text">Aperçu de la Performance</span>
+            <div class="flex space-x-2 sm:space-x-8 overflow-x-auto">
+                <button class="tab-button active" data-tab="performance"
+                        id="tab-performance">
+                    <span class="tab-text">📊 Aperçu Performance</span>
                 </button>
-                <button class="tab-button" data-tab="portfolio" id="tab-portfolio">
-                    <span class="tab-text">Portefeuille & Analyse IA</span>
+                <button class="tab-button" data-tab="portfolio"
+                        id="tab-portfolio">
+                    <span class="tab-text">🏢 Portefeuille & IA</span>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Main Dashboard -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:
-py-8">
+    <!-- Main Dashboard - iPhone 16 Optimized -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-6 md:py-8">
         <!-- Performance Overview Tab -->
         <div id="tab-content-performance" class="tab-content active">
-            <section class="mb-8">
-                <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Indicateurs Clés de Performance (KPIs)</h2>
+            <section class="mb-6 sm:mb-8">
+                <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Indicateurs Clés de Performance (KPIs)</h2>
                 <div id="kpiContainer">
-                     <!-- FIXED: KPI cards will be populated by JavaScript - no longer empty -->
+                     <!-- KPI cards will be populated by JavaScript -->
                 </div>
             </section>
 
-            <!-- CORRECTED: Stéphane Bonvin Individual Section - Now properly structured -->
-            <section class="mb-8">
-                <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Performance Individuelle - Stéphane Bonvin</h2>
+            <!-- Stéphane Bonvin Individual Section - iPhone 16 Optimized -->
+            <section class="mb-6 sm:mb-8">
+                <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Performance Individuelle - Stéphane Bonvin</h2>
                 <div id="stephaneBovinSection" class="bonvin-section">
-                    <!-- FIXED: Stéphane Bonvin data will be populated by JavaScript - no longer empty -->
+                    <!-- Stéphane Bonvin data will be populated by JavaScript -->
                 </div>
             </section>
 
-            <section class="mb-8">
-                 <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Déploiement du Capital</h2>
+            <section class="mb-6 sm:mb-8">
+                 <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Déploiement du Capital</h2>
                  <div class="deployment-progress">
-                    <h3 class="text-md font-semibold text-gray-700 mb-2">Capital Investi / Appelé</h3>
-                    <p class="text-sm text-gray-600 mb-2">82.2 M€ appelés / 121 M€ engagés (~68% investi)</p>
+                    <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-2">Capital Investi / Appelé</h3>
+                    <p class="text-xs sm:text-sm text-gray-600 mb-2">82.2 M€ appelés / 121 M€ engagés (~68% investi)</p>
                      <div class="progress-bar">
                          <div class="progress-fill invested" style="width: 68%;"></div>
                      </div>
                  </div>
                  <div class="deployment-progress">
-                     <h3 class="text-md font-semibold text-gray-700 mb-2">Capital Disponible pour Investissement</h3>
-                     <p class="text-sm text-gray-600 mb-2">~39 M€ restants (~32% disponible)</p>
+                     <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-2">Capital Disponible pour Investissement</h3>
+                     <p class="text-xs sm:text-sm text-gray-600 mb-2">~39 M€ restants (~32% disponible)</p>
                      <div class="progress-bar">
                          <div class="progress-fill" style="width: 32%;"></div>
                      </div>
                  </div>
             </section>
 
-             <section class="mb-8">
-                <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Faits Marquants Qualitatifs (Q4 2024)</h2>
-                <div id="qualitativeHighlights" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <!-- FIXED: Qualitative highlights will be populated by JavaScript - no longer empty -->
+             <section class="mb-6 sm:mb-8">
+                <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Faits Marquants Qualitatifs (Q4 2024)</h2>
+                <div id="qualitativeHighlights" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                    <!-- Qualitative highlights will be populated by JavaScript -->
                 </div>
             </section>
 
-            <section class="mb-8">
-                <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Tendances de Performance Historique</h2>
-                <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
+            <section class="mb-6 sm:mb-8">
+                <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Tendances de Performance Historique</h2>
+                <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                     <section class="chart-container">
-                         <h3 class="text-md font-semibold text-gray-700 mb-4">Évolution de la NAV (en M€)</h3>
+                         <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">Évolution de la NAV (en M€)</h3>
                         <div class="chart-wrapper">
                             <canvas id="navChart" width="400" height="250"></canvas>
                         </div>
                     </section>
                      <section class="chart-container">
-                         <h3 class="text-md font-semibold text-gray-700 mb-4">Tendances TVPI et RVPI</h3>
+                         <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">Tendances TVPI et RVPI</h3>
                          <div class="chart-wrapper">
                             <canvas id="tvpiChart" width="400" height="250"></canvas>
                          </div>
                     </section>
                      <section class="chart-container">
-                         <h3 class="text-md font-semibold text-gray-700 mb-4">IRR Net (%)</h3>
+                         <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">IRR Net (%)</h3>
                         <div class="chart-wrapper">
                             <canvas id="irrChart" width="400" height="250"></canvas>
                         </div>
                     </section>
                     <section class="chart-container">
-                         <h3 class="text-md font-semibold text-gray-700 mb-4">Flux de Capital Cumulés (en M€)</h3>
+                         <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">Flux de Capital Cumulés (en M€)</h3>
                          <div class="chart-wrapper">
                              <canvas id="cumulativeFlowsChart" width="400" height="250"></canvas>
                          </div>
@@ -107,17 +119,17 @@ py-8">
                 </div>
             </section>
 
-            <section class="mb-8">
-                <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Diversification du Portefeuille</h2>
-                 <div class="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8">
+            <section class="mb-6 sm:mb-8">
+                <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Diversification du Portefeuille</h2>
+                 <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
                      <section class="chart-container">
-                         <h3 class="text-md font-semibold text-gray-700 mb-4">Répartition Géographique</h3>
+                         <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">Répartition Géographique</h3>
                          <div class="chart-wrapper">
                             <canvas id="geoChart" width="400" height="250"></canvas>
                          </div>
                      </section>
                       <section class="chart-container">
-                         <h3 class="text-md font-semibold text-gray-700 mb-4">Répartition Sectorielle</h3>
+                         <h3 class="text-sm sm:text-md font-semibold text-gray-700 mb-3 sm:mb-4">Répartition Sectorielle</h3>
                          <div class="chart-wrapper">
                             <canvas id="sectorChart" width="400" height="250"></canvas>
                          </div>
@@ -125,24 +137,25 @@ py-8">
                  </div>
             </section>
 
-             <section class="mb-8">
-                 <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Flux de Trésorerie Récent (Q4 2024 Exemples)</h2>
+             <section class="mb-6 sm:mb-8">
+                 <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4 sm:mb-6">Flux de Trésorerie Récent (Q4 2024 Exemples)</h2>
                  <div class="chart-container">
-                     <div class="chart-wrapper" style="height: 180px;">
+                     <div class="chart-wrapper" style="height: 160px; sm:height: 180px;">
                          <canvas id="cashFlowChart" width="400" height="180"></canvas>
                      </div>
                  </div>
              </section>
         </div>
 
-        <!-- CORRECTED: Portfolio & AI Analysis Tab - Now fully functional -->
+        <!-- Portfolio & AI Analysis Tab - iPhone 16 Optimized -->
         <div id="tab-content-portfolio" class="tab-content">
-            <section class="mb-8">
-                <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-6">Portfolio Companies & AI Impact Analysis</h2>
-                <p class="text-sm text-gray-600 mb-6">Analyse de l'exposition et des liens avec l'Intelligence Artificielle pour les principales participations du portefeuille PCIOF I.</p>
+            <section class="mb-6 sm:mb-8">
+                <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-4
+sm:mb-6">Portfolio Companies & AI Impact Analysis</h2>
+                <p class="text-xs sm:text-sm text-gray-600 mb-4 sm:mb-6">Analyse de l'exposition et des liens avec l'Intelligence Artificielle pour les principales participations du portefeuille PCIOF I.</p>
 
-                <!-- AI Analysis Introduction -->
-                <div class="ai-intro-section mb-8">
+                <!-- AI Analysis Introduction - iPhone 16 Optimized -->
+                <div class="ai-intro-section mb-6 sm:mb-8">
                     <div class="ai-intro-card">
                         <h3 class="ai-intro-title">Contexte de l'Analyse IA</h3>
                         <p class="ai-intro-text">
@@ -157,8 +170,8 @@ py-8">
                     </div>
                 </div>
 
-                <!-- FIXED: AI Analysis Summary Cards - Now populated with real data -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <!-- AI Analysis Summary Cards - iPhone 16 Optimized -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div class="ai-summary-card high-ai">
                         <div class="ai-summary-label">Exposition IA Élevée</div>
                         <div class="ai-summary-value">3</div>
@@ -176,37 +189,37 @@ py-8">
                     </div>
                 </div>
 
-                 <!-- Filter/Search input -->
-                 <div class="mb-6">
-                     <input type="text" id="portfolioFilterInput" placeholder="Rechercher par nom, type, ou analyse IA..." class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                 <!-- Filter/Search input - iPhone 16 Optimized -->
+                 <div class="mb-4 sm:mb-6">
+                     <input type="text" id="portfolioFilterInput" placeholder="Rechercher par nom, type, ou analyse IA..." class="w-full px-4 py-3 sm:py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-base">
                  </div>
 
-                <!-- CORRECTED: Portfolio Companies Table - Now functional -->
+                <!-- Portfolio Companies Table - iPhone 16 Optimized -->
                 <div class="portfolio-table-container">
                     <div class="portfolio-table-header">
                         <div class="portfolio-header-cell company-column" data-sort="name">
-                            Société/Fonds
+                            Société/Fonds 
                             <span class="sort-indicator"></span>
                         </div>
                         <div class="portfolio-header-cell ai-level-column" data-sort="aiLevel">
-                            Niveau IA
+                            Niveau IA 
                             <span class="sort-indicator"></span>
                         </div>
                         <div class="portfolio-header-cell ai-analysis-column" data-sort="aiAnalysis">
-                            Analyse & Liens IA
+                            Analyse & Liens IA 
                             <span class="sort-indicator"></span>
                         </div>
                     </div>
                     <div id="portfolioTableBody">
-                        <!-- FIXED: Portfolio companies will be populated by JavaScript - no longer empty -->
+                        <!-- Portfolio companies will be populated by JavaScript -->
                     </div>
                 </div>
             </section>
 
-            <!-- FIXED: AI Impact Charts - Now functional -->
-            <div class="grid grid-cols-1 xl:grid-cols-1 gap-6 lg:gap-8 mt-8">
+            <!-- AI Impact Charts - iPhone 16 Optimized -->
+            <div class="grid grid-cols-1 xl:grid-cols-1 gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8">
                 <section class="chart-container">
-                    <h2 class="text-lg sm:text-xl font-semibold text-gray-800 mb-4">Répartition par Niveau d'Exposition IA</h2>
+                    <h2 class="text-base sm:text-lg md:text-xl font-semibold text-gray-800 mb-3 sm:mb-4">Répartition par Niveau d'Exposition IA</h2>
                     <div class="chart-wrapper">
                         <canvas id="aiExposureChart" width="400" height="250"></canvas>
                     </div>
@@ -215,8 +228,29 @@ py-8">
         </div>
     </main>
 
+    <!-- Scripts - Optimized loading order for iPhone 16 -->
     <script src="data.js"></script>
     <script src="charts.js"></script>
     <script src="dashboard.js"></script>
+    
+    <!-- Performance monitoring for iPhone 16 -->
+    <script>
+        // Performance optimization for iPhone 16
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Register service worker for caching if needed in production
+                console.log('Service Worker support detected');
+            });
+        }
+        
+        // Handle viewport changes for iPhone 16
+        window.addEventListener('resize', function() {
+            // Update CSS custom properties for dynamic viewport
+            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+        });
+        
+        // Initial viewport setup
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+    </script>
 </body>
 </html>
