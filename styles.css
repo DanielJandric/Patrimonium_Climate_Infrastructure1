@@ -1,0 +1,1049 @@
+/* Custom CSS for Patrimonium Dashboard */
+:root {
+    --primary-blue: #0053a3;
+    --secondary-white: #ffffff;
+    --accent-green: #008000;
+    --text-dark: #333333;
+    --bg-main: #ffffff;
+    --bg-section: #f7f7f7;
+    --border-light: #e0e0e0;
+    --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 16px rgba(0, 83, 163, 0.15);
+}
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: var(--bg-section);
+}
+
+/* Tab Navigation Styles */
+.tab-button {
+    background: transparent;
+    border: none;
+    padding: 16px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666666;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-button:hover {
+    color: var(--primary-blue);
+    background-color: rgba(0, 83, 163, 0.05);
+}
+
+.tab-button.active {
+    color: var(--primary-blue);
+    border-bottom-color: var(--primary-blue);
+    background-color: rgba(0, 83, 163, 0.05);
+}
+
+.tab-text {
+    white-space: nowrap;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* KPI Cards */
+.kpi-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 20px 16px;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.kpi-label {
+    font-size: 13px;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.kpi-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+
+.kpi-value.positive {
+    color: var(--accent-green);
+}
+
+.kpi-context {
+    font-size: 11px;
+    color: #666666;
+    font-weight: 300;
+    line-height: 1.3;
+}
+
+/* NEW: Stéphane Bonvin Section Styles */
+.bonvin-section {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: var(--shadow-light);
+}
+
+.bonvin-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.bonvin-card.highlight {
+    border-left: 4px solid var(--accent-green);
+    background: rgba(0, 128, 0, 0.05);
+}
+
+.bonvin-card:hover {
+    background: var(--bg-main);
+    box-shadow: var(--shadow-light);
+    transform: translateY(-1px);
+}
+
+.bonvin-label {
+    font-size: 12px;
+    color: var(--text-dark);
+    font-weight: 500;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.bonvin-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+.bonvin-value.positive {
+    color: var(--accent-green);
+}
+
+.bonvin-transactions {
+    margin-top: 24px;
+}
+
+.transactions-table {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.transaction-header,
+.transaction-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
+    align-items: center;
+}
+
+.transaction-header {
+    background: var(--bg-section);
+    font-weight: 600;
+    font-size: 12px;
+    color: var(--text-dark);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.transaction-row {
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.2s ease;
+}
+
+.transaction-row:hover {
+    background-color: rgba(0, 83, 163, 0.02);
+}
+
+.transaction-row:last-child {
+    border-bottom: none;
+}
+
+.transaction-cell {
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text-dark);
+}
+
+.transaction-type {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.transaction-type.drawdown {
+    background: rgba(0, 83, 163, 0.1);
+    color: var(--primary-blue);
+}
+
+.transaction-type.distribution {
+    background: rgba(0, 128, 0, 0.1);
+    color: var(--accent-green);
+}
+
+/* AI Analysis Section Styles */
+.ai-intro-section {
+    margin-bottom: 32px;
+}
+
+.ai-intro-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: var(--shadow-light);
+}
+
+.ai-intro-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 16px;
+}
+
+.ai-intro-text {
+    font-size: 14px;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.ai-intro-text:last-child {
+    margin-bottom: 0;
+}
+
+/* AI Summary Cards */
+.ai-summary-card {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 20px 16px;
+    box-shadow: var(--shadow-light);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.ai-summary-card.high-ai {
+    border-left: 4px solid var(--accent-green);
+}
+
+.ai-summary-card.medium-ai {
+    border-left: 4px solid var(--primary-blue);
+}
+
+.ai-summary-card.low-ai {
+    border-left: 4px solid #87ceeb;
+}
+
+.ai-summary-label {
+    font-size: 13px;
+    color: var(--text-dark);
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.ai-summary-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.ai-summary-context {
+    font-size: 11px;
+    color: #666666;
+    font-weight: 300;
+}
+
+/* Portfolio Table */
+.portfolio-table-container {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+.portfolio-table-header {
+    display: grid;
+    grid-
+template-columns: 2fr 1fr 3fr;
+    background: var(--bg-section);
+    border-bottom: 2px solid var(--border-light);
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.portfolio-header-cell {
+    padding: 16px 20px;
+    font-size: 14px;
+    border-right: 1px solid var(--border-light);
+    cursor: pointer;
+    position: relative;
+    padding-right: 30px; /* Make space for sort indicator */
+    transition: all 0.2s ease;
+}
+
+.portfolio-header-cell:hover {
+    background-color: rgba(0, 83, 163, 0.05);
+}
+
+.portfolio-header-cell:last-child {
+    border-right: none;
+}
+
+/* Enhanced Sort Indicator Styles */
+.sort-indicator {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #ccc;
+    opacity: 0.5;
+    transition: all 0.2s ease;
+}
+
+.portfolio-header-cell:hover .sort-indicator {
+    opacity: 0.8;
+    border-top-color: var(--primary-blue);
+}
+
+.portfolio-header-cell[data-sort-direction="asc"] .sort-indicator {
+    border-top: none;
+    border-bottom: 5px solid var(--primary-blue);
+    opacity: 1;
+}
+
+.portfolio-header-cell[data-sort-direction="desc"] .sort-indicator {
+    border-top: 5px solid var(--primary-blue);
+    opacity: 1;
+}
+
+.portfolio-table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr;
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.2s ease;
+}
+
+.portfolio-table-row:hover {
+    background-color: rgba(0, 83, 163, 0.02);
+}
+
+.portfolio-table-row:last-child {
+    border-bottom: none;
+}
+
+.portfolio-cell {
+    padding: 16px 20px;
+    border-right: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.portfolio-cell:last-child {
+    border-right: none;
+}
+
+.company-column {
+    /* Specific styling if needed */
+}
+.ai-level-column {
+    /* Specific styling if needed */
+    justify-content: flex-start; /* Align badge left */
+}
+.ai-analysis-column {
+    /* Specific styling if needed */
+}
+
+.company-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.company-type {
+    font-size: 12px;
+    color: #666666;
+    font-weight: 300;
+}
+
+.ai-level-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.ai-level-badge.ai-high {
+    background-color: rgba(0, 128, 0, 0.1);
+    color: var(--accent-green);
+    border: 1px solid var(--accent-green);
+}
+
+.ai-level-badge.ai-medium {
+    background-color: rgba(0, 83, 163, 0.1);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
+
+.ai-level-badge.ai-low {
+    background-color: rgba(135, 206, 235, 0.1);
+    color: #4682b4;
+    border: 1px solid #87ceeb;
+}
+
+.ai-analysis-text {
+    font-size: 13px;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin-bottom: 8px;
+}
+
+.ai-sources {
+    font-size: 11px;
+    color: #666666;
+    font-style: italic;
+}
+
+/* Enhanced Tooltips */
+.kpi-tooltip {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: var(--text-dark);
+    box-shadow: var(--shadow-hover);
+    max-width: 200px;
+    text-align: center;
+    pointer-events: none;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease forwards;
+}
+
+@keyframes tooltipFadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.tooltip-content {
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+/* Chart Containers */
+.chart-container {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 20px 16px;
+    box-shadow: var(--shadow-light);
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 200px;
+    margin-bottom: 12px;
+}
+
+.chart-wrapper canvas {
+    max-width: 100%;
+    height: auto !important;
+}
+
+/* Progress Bars */
+.deployment-progress {
+    margin-bottom: 24px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--border-light);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-blue);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+.progress-fill.invested {
+    background-color: var(--accent-green);
+}
+
+/* Qualitative Highlights */
+.highlight-card {
+    background: var(--bg-section);
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    padding: 14px 16px;
+    transition: all 0.2s ease;
+}
+
+.highlight-card:hover {
+    background: var(--bg-main);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-title {
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.highlight-description {
+    font-size: 12px;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.highlight-positive {
+    color: var(--accent-green);
+    font-weight: 600;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 640px) {
+    .tab-button {
+        padding: 12px 16px;
+        font-size: 13px;
+    }
+
+    .portfolio-table-header,
+    .portfolio-table-row {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio-header-cell,
+    .portfolio-cell {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        padding: 12px 16px;
+    }
+
+    .portfolio-header-cell {
+        padding-right: 16px; /* Remove extra space */
+    }
+    .sort-indicator {
+         display: none; /* Hide indicator on small screens */
+    }
+
+    .kpi-card {
+        padding: 16px 12px;
+    }
+
+    .kpi-value {
+        font-size: 20px;
+    }
+
+    .kpi-label {
+        font-size: 12px;
+    }
+
+    .kpi-context {
+        font-size: 10px;
+    }
+
+    .chart-container {
+        padding: 16px 12px;
+    }
+
+    .chart-wrapper {
+        height: 180px;
+    }
+
+    .highlight-card {
+        padding: 12px 14px;
+    }
+
+    .highlight-title {
+        font-size: 12px;
+    }
+
+    .highlight-description {
+        font-size: 11px;
+    }
+
+    .ai-summary-card {
+        padding: 16px 12px;
+    }
+
+    .ai-summary-value {
+        font-size: 28px;
+    }
+
+    .bonvin-section {
+        padding: 16px;
+    }
+
+    .bonvin-transactions {
+        margin-top: 16px;
+    }
+
+    .transaction-header,
+    .transaction-row {
+        grid-template-columns: 1fr;
+    }
+
+    .transaction-cell {
+        border-bottom: 1px solid var(--border-light);
+        padding: 8px 12px;
+    }
+
+    .ai-intro-card {
+        padding: 16px;
+    }
+
+    .ai-intro-title {
+        font-size: 14px;
+    }
+
+    .ai-intro-text {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        gap: 16px;
+    }
+
+    .chart-wrapper {
+        height: 160px;
+        margin-bottom: 16px;
+    }
+
+    .deployment-progress {
+        margin-bottom: 20px;
+    }
+
+    .portfolio-table-header,
+    .portfolio-table-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .xl\\:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .lg\\:grid-cols-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Chart tooltip customization */
+.chartjs-tooltip {
+    background: var(--bg-main);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    color: var(--text-dark);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    box-shadow: var(--shadow-hover);
+}
+
+/* Print styles */
+@media print {
+    .tab-button {
+        display: none;
+    }
+
+    .tab-content {
+        display: block !important;
+        page-break-after: always;
+    }
+
+    .kpi-card,
+    .chart-container,
+    .highlight-card,
+    .ai-summary-card,
+    .portfolio-table-container,
+    .bonvin-section {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+
+    .kpi-tooltip {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .portfolio-table-row {
+        break-inside: avoid;
+    }
+
+     #portfolioFilterInput,
+     .portfolio-table-header .sort-indicator {
+         display: none;
+     }
+     .portfolio-header-cell {
+         padding-right: 16px;
+     }
+}
+
+/* Loading animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Accessibility improvements */
+.kpi-card:focus,
+.tab-button:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.kpi-card[tabindex="0"] {
+    cursor: pointer;
+}
+
+.tab-button:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-light: #000000;
+        --text-dark: #000000;
+        --bg-main: #ffffff;
+        --bg-section: #ffffff;
+    }
+
+    .kpi-card,
+    .chart-container,
+    .highlight-card,
+    .ai-summary-card,
+    .portfolio-table-container,
+    .bonvin-section {
+        border-width: 2px;
+    }
+
+    .ai-level-badge {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .kpi-card,
+    .highlight-card,
+    .progress-fill,
+    .kpi-tooltip,
+    .tab-content,
+    .portfolio-table-row,
+    .bonvin-card,
+    .sort-indicator {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* Enhanced visual hierarchy */
+h1, h2, h3 {
+    letter-spacing: -0.025em;
+}
+
+/* Improved focus indicators */
+canvas:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 4px;
+}
+
+/* Pixel-perfect alignment */
+.grid > * {
+    align-self: stretch;
+}
+
+.flex {
+    align-items: center;
+}
+
+/* Enhanced spacing consistency */
+.space-y-3 > * + * {
+    margin-top: 12px;
+}
+
+.space-y-4 > * + * {
+    margin-top: 16px;
+}
+
+/* Color consistency with patrimonium.ch */
+.text-gray-800 {
+    color: var(--text-dark);
+}
+
+.bg-gray-50 {
+    background-color: var(--bg-section);
+}
+
+.border-gray-200 {
+    border-color: var(--border-light);
+}
+
+/* Tab-specific responsive adjustments */
+@media (max-width: 640px) {
+    .tab-button .tab-text {
+        font-size: 12px;
+    }
+}
+
+/* Portfolio table specific responsive behavior */
+@media (max-width: 768px) {
+    .company-column,
+    .ai-level-column,
+    .ai-analysis-column {
+        min-width: 100%;
+    }
+
+    .portfolio-cell.ai-level-column {
+        text-align: left;
+    }
+
+    .ai-level-badge {
+        display: inline-block;
+        margin-bottom: 8px;
+    }
+}
+
+/* Smooth transitions for tab switching */
+.tab-content {
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Enhanced hover states */
+.ai-summary-card:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-hover);
+}
+
+.portfolio-table-row:hover .company-name {
+    color: var(--primary-blue);
+}
+
+/* Loading state styles */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.spinner {
+    border: 2px solid var(--border-light);
+    border-top: 2px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1
+s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error states */
+.success-state {
+    border-left: 4px solid var(--accent-green);
+    background-color: rgba(0, 128, 0, 0.05);
+}
+
+.error-state {
+    border-left: 4px solid #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+
+/* Custom scrollbar for portfolio table on webkit browsers */
+.portfolio-table-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.portfolio-table-container::-webkit-scrollbar-track {
+    background: var(--bg-section);
+    border-radius: 4px;
+}
+
+.portfolio-table-container::-webkit-scrollbar-thumb {
+    background: var(--border-light);
+    border-radius: 4px;
+}
+
+.portfolio-table-container::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
+
+/* Filter Input Styling */
+#portfolioFilterInput {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+#portfolioFilterInput:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(0, 83, 163, 0.1);
+}
+
+/* Enhanced interactive states for sorting */
+.portfolio-header-cell:active {
+    background-color: rgba(0, 83, 163, 0.1);
+}
+
+.portfolio-header-cell[data-sort-direction] {
+    background-color: rgba(0, 83, 163, 0.02);
+}
+
+/* Sorting animation */
+.portfolio-table-row {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced focus management for accessibility */
+.portfolio-header-cell:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: -2px;
+}
+
+#portfolioFilterInput:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+/* Table responsiveness improvements */
+@media (max-width: 1200px) {
+    .portfolio-table-header,
+    .portfolio-table-row {
+        grid-template-columns: 1.5fr 1fr 2.5fr;
+    }
+}
+
+/* Animation for filtered results */
+.portfolio-table-row.filtered-out {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+}
+
+.portfolio-table-row.filtered-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+}
+
+/* Empty state styling */
+.portfolio-table-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666666;
+    font-style: italic;
+}
+
+/* Improved mobile table experience */
+@media (max-width: 640px) {
+    .portfolio-table-container {
+        margin: 0 -10px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    .portfolio-header-cell,
+    .portfolio-cell {
+        padding: 12px 20px;
+    }
+    
+    .company-name {
+        font-size: 15px;
+        margin-bottom: 6px;
+    }
+    
+    .ai-analysis-text {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+}
