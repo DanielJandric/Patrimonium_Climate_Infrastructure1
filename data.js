@@ -92,8 +92,7 @@ const dashboardData = {
             { date: '2022-Q2', contributions: 28.7, distributions: 0 },
             { date: '2022-Q3', contributions: 42.1, distributions: 0 },
             { date: '2022-Q4', contributions: 51.8, distributions: 0 },
-            { date: '2023-Q1', contributions: 58.9, distributions:
-0 },
+            { date: '2023-Q1', contributions: 58.9, distributions: 0 },
             { date: '2023-Q2', contributions: 65.4, distributions: 0 },
             { date: '2023-Q3', contributions: 72.8, distributions: 0 },
             { date: '2023-Q4', contributions: 78.2, distributions: 0 },
